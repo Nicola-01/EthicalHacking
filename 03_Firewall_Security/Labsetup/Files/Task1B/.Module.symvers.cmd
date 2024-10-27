@@ -1,0 +1,1 @@
+savedcmd_/home/nicola/Desktop/EthicalHacking/03_Firewall_Security/Labsetup/Files/Task1B/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/nicola/Desktop/EthicalHacking/03_Firewall_Security/Labsetup/Files/Task1B/Module.symvers -T /home/nicola/Desktop/EthicalHacking/03_Firewall_Security/Labsetup/Files/Task1B/modules.order -i Module.symvers -e 

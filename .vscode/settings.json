@@ -1,0 +1,5 @@
+{
+    "files.associations": {
+        "netfilter_ipv4.h": "c"
+    }
+}
