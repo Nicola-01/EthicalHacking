@@ -1,0 +1,2 @@
+String url = requestResponse.finalRequest().url();
+return ((url.contains("www.seed-server.com") && !url.contains("/cache/")) || url.contains("www.attacker32.com/"));
