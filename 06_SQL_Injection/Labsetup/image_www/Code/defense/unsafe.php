@@ -22,17 +22,27 @@ $hashed_pwd = sha1($input_pwd);
 $conn = getDB();
 
 // do the query
-$result = $conn->query("SELECT id, name, eid, salary, ssn
+// $result = $conn->query("SELECT id, name, eid, salary, ssn
+//                         FROM credential
+//                         WHERE name= '$input_uname' and Password= '$hashed_pwd'");
+
+
+$stmt = $conn->prepare("SELECT id, name, eid, salary, ssn
                         FROM credential
-                        WHERE name= '$input_uname' and Password= '$hashed_pwd'");
-if ($result->num_rows > 0) {
+                        WHERE name= ? and Password= ? ");
+// Bind parameters to the query
+$stmt->bind_param("ss", $input_uname, $hashed_pwd);
+$stmt->execute();
+$stmt->bind_result($bund_id, $bund_name, $bund_eid, $bund_salary, $bund_ssn);
+
+if ($stmt->fetch()) {
   // only take the first row 
-  $firstrow = $result->fetch_assoc();
-  $id     = $firstrow["id"];
-  $name   = $firstrow["name"];
-  $eid    = $firstrow["eid"];
-  $salary = $firstrow["salary"];
-  $ssn    = $firstrow["ssn"];
+  // $firstrow = $result->fetch_assoc();
+  $id     = $bund_id;
+  $name   = $bund_name;
+  $eid    = $bund_eid;
+  $salary = $bund_salary;
+  $ssn    = $bund_ssn;
 }
 
 // close the sql connection
