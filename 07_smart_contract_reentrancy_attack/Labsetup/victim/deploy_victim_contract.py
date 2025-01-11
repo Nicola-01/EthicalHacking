@@ -6,6 +6,7 @@ import SEEDWeb3
 abi_file = "../contract/ReentrancyVictim.abi"
 bin_file = "../contract/ReentrancyVictim.bin" 
 
+
 # Connect to a geth node
 web3 = SEEDWeb3.connect_to_geth_poa('http://10.150.0.71:8545')
 
