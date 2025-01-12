@@ -13,7 +13,7 @@ def traceroute(destination_ip):
         
         if response is None:
             print(f"TTL={ttl}: No response")
-            break  # Stop if no response is received
+            # break  # Stop if no response is received
         
         elif response.haslayer(ICMP):
             if response.getlayer(ICMP).type == 0: # Echo Reply

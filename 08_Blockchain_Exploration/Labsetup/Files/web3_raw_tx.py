@@ -2,19 +2,19 @@
 from web3 import Web3
 from eth_account import Account
 
-web3 = Web3(Web3.HTTPProvider('http://ip-address:8545'))
+web3 = Web3(Web3.HTTPProvider('http://10.150.0.71:8545'))
 
 # Sender's private key 
-key = 'private key'
+key = '20aec3a7207fcda31bdef03001d9caf89179954879e595d9a190d6ac8204e498'
 sender = Account.from_key(key)
 
-recipient = Web3.toChecksumAddress('account number')
+recipient = Web3.toChecksumAddress('0xCBF1e330F0abD5c1ac979CF2B2B874cfD4902E24')
 tx = {
   'chainId':  1337, 
   'nonce':    web3.eth.getTransactionCount(sender.address),
   'from':     sender.address,
   'to':       recipient,
-  'value':    Web3.toWei("11", 'ether'),
+  'value':    Web3.toWei("9", 'ether'),
   'gas':      200000,
   'maxFeePerGas':         Web3.toWei('4', 'gwei'),
   'maxPriorityFeePerGas': Web3.toWei('3', 'gwei'),

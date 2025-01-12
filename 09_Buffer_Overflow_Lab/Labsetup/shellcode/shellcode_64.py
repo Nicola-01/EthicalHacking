@@ -17,6 +17,8 @@ shellcode = (
    # You can delete/add spaces, if needed, to keep the position the same. 
    # The * in this line serves as the position marker         * 
    "/bin/ls -l; echo Hello 64; /bin/tail -n 4 /etc/passwd     *"
+   # "touch test.txt; echo popipopi; mkdir tmp                  *"
+   # "rm test.txt; echo popipopi; rmdir tmp                     *"
    "AAAAAAAA"   # Placeholder for argv[0] --> "/bin/bash"
    "BBBBBBBB"   # Placeholder for argv[1] --> "-c"
    "CCCCCCCC"   # Placeholder for argv[2] --> the command string
