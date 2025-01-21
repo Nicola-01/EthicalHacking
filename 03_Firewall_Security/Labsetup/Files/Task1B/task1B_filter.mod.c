@@ -2,14 +2,8 @@
 #define INCLUDE_VERMAGIC
 #include <linux/build-salt.h>
 #include <linux/elfnote-lto.h>
-#include <linux/export-internal.h>
 #include <linux/vermagic.h>
 #include <linux/compiler.h>
-
-#ifdef CONFIG_UNWINDER_ORC
-#include <asm/orc_header.h>
-ORC_HEADER;
-#endif
 
 BUILD_SALT;
 BUILD_LTO_INFO;
@@ -31,25 +25,16 @@ __section(".gnu.linkonce.this_module") = {
 MODULE_INFO(retpoline, "Y");
 #endif
 
-
-
-static const char ____versions[]
-__used __section("__versions") =
-	"\x14\x00\x00\x00\xbb\x6d\xfb\xbd"
-	"__fentry__\0\0"
-	"\x1c\x00\x00\x00\xca\x39\x82\x5b"
-	"__x86_return_thunk\0\0"
-	"\x10\x00\x00\x00\x7e\x3a\x2c\x12"
-	"_printk\0"
-	"\x14\x00\x00\x00\x2c\xf1\xc6\x80"
-	"init_net\0\0\0\0"
-	"\x20\x00\x00\x00\x8c\x30\x07\x3a"
-	"nf_register_net_hook\0\0\0\0"
-	"\x20\x00\x00\x00\x64\xca\x9b\x30"
-	"nf_unregister_net_hook\0\0"
-	"\x18\x00\x00\x00\x75\xfc\x62\xbb"
-	"module_layout\0\0\0"
-	"\x00\x00\x00\x00\x00\x00\x00\x00";
+static const struct modversion_info ____versions[]
+__used __section("__versions") = {
+	{ 0xc8d01d53, "module_layout" },
+	{ 0xef597490, "nf_unregister_net_hook" },
+	{ 0xdd558c3b, "nf_register_net_hook" },
+	{ 0xa71ebc8a, "init_net" },
+	{ 0x92997ed8, "_printk" },
+	{ 0x5b8239ca, "__x86_return_thunk" },
+	{ 0xbdfb6dbb, "__fentry__" },
+};
 
 MODULE_INFO(depends, "");
 

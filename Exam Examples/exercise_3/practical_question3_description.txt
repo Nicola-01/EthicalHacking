@@ -1,0 +1,3 @@
+(3 points) The original dimension of the buffer in the format string attack lab has been modified. You are required to complete the Task 2: Printing Out the Server Program’s Memory with the new vulnerable program configuration. Upload your solution together with instructions to execute it. 
+
+

