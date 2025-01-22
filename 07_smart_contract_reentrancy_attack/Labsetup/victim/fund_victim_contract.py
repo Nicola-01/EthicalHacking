@@ -5,13 +5,13 @@ import SEEDWeb3
 import os
 
 abi_file    = "../contract/ReentrancyVictim.abi"
-victim_addr = 'put the actual address here'
+victim_addr = '0xaf98236bcb084ADc949f43d647eb4045260b31F3'
 
 # Connect to our geth node
 web3 = SEEDWeb3.connect_to_geth_poa('http://10.150.0.71:8545')
 
 # We use web3.eth.accounts[1] as the sender because it has more Ethers
-sender_account = web3.eth.accounts[1]
+sender_account = web3.eth.accounts[0]
 web3.geth.personal.unlockAccount(sender_account, "admin")
 
 # Deposit Ethers to the victim contract

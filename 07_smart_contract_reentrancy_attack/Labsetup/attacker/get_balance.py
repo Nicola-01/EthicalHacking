@@ -24,13 +24,14 @@ print("----------------------------------------------------------")
 # Get the balances of the victim's and attacker's contract accounts.
 # Please use their correct addresses.
 try:
-  victim_addr = 'put the real address here'
+  victim_addr = '0xaf98236bcb084ADc949f43d647eb4045260b31F3'
   print("  Victim: ", end='')
   print_balance(web3, victim_addr)
 
-  attack_addr = 'put the real address here'
+  attack_addr = '0xa45B9a24688b1e250CB05347187839B050B2d90e'
   print("Attacker: ", end='')
   print_balance(web3, attack_addr)
+  print()
 except:
   print()
   print("Exception captured: Please put the actual address in the code")

@@ -6,7 +6,7 @@ import os
 
 abi_file        = "../contract/ReentrancyAttacker.abi"
 bin_file        = "../contract/ReentrancyAttacker.bin" 
-victim_contract = 'put the actual address here'
+victim_contract = '0xaf98236bcb084ADc949f43d647eb4045260b31F3'
 
 
 # Connect to our geth node 

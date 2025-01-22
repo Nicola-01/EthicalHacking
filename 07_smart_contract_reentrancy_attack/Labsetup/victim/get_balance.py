@@ -24,7 +24,7 @@ print("----------------------------------------------------------")
 # Get the balances of the victim contract 
 # Please use the correct address.
 try:
-  victim_addr = 'put the real address here'
+  victim_addr = '0xaf98236bcb084ADc949f43d647eb4045260b31F3'
   print("  Victim: ", end='')
   print_balance(web3, victim_addr)
 except:

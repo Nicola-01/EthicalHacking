@@ -10,7 +10,7 @@ sender_account = web3.eth.accounts[1]
 web3.geth.personal.unlockAccount(sender_account, "admin")
 
 abi_file      = "../contract/ReentrancyAttacker.abi"
-attacker_addr = 'put the actual address here'
+attacker_addr = '0xa45B9a24688b1e250CB05347187839B050B2d90e'
 
 # Launch the attack
 contract_abi  = SEEDWeb3.getFileContent(abi_file)
