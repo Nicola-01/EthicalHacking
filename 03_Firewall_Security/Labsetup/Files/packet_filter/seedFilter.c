@@ -74,24 +74,7 @@ unsigned int printInfo(void *priv, struct sk_buff *skb,
       break;
    }
 
-   """
-   I 5 hook rappresentano punti distinti del flusso di un pacchetto attraverso il kernel di Linux:
 
-    NF_INET_PRE_ROUTING:
-        Questo e\' il primo punto in cui il pacchetto viene intercettato, appena entra nel sistema. Viene utilizzato per pacchetti che devono essere instradati (routing) o consegnati localmente.
-
-    NF_INET_LOCAL_IN:
-        Dopo il routing, questo hook si attiva per pacchetti destinati al sistema locale (cioe\' processi in esecuzione sulla macchina stessa).
-
-    NF_INET_FORWARD:
-        Questo hook intercetta pacchetti che non sono destinati al sistema locale, ma che devono essere inoltrati tra due interfacce (tipico nei router).
-
-    NF_INET_LOCAL_OUT:
-        Questo hook si attiva per pacchetti generati localmente dal sistema e che devono essere inviati verso una destinazione esterna.
-
-    NF_INET_POST_ROUTING:
-        Questo e\' l\'ultimo punto in cui il pacchetto passa prima di essere inviato sulla rete. Qui si applicano modifiche finali o decisioni di filtraggio.
-   """
 
    printk(KERN_INFO "*** %s\n", hook); // Print out the hook info
 

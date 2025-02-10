@@ -32,7 +32,7 @@ def send_reset(pkt):
 def main():
 	# Sniffing exchanged packets
 	print('[+] Sniffing...')
-	pkt = sniff(iface=IFACE, filter='tcp', prn=send_reset)
+	pkt = sniff(iface=IFACE, filter='tcp and dst host ', prn=send_reset)
 
 if __name__ == '__main__':
 	main()

